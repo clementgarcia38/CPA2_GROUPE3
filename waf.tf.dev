@@ -1,0 +1,34 @@
+
+# En dev
+
+resource "azurerm_web_application_firewall_policy" "waf" {
+  name                = "wafcpa2"
+  resource_group_name = azurerm_resource_group.rg_aks.name
+  location            = azurerm_resource_group.rg_aks.location
+
+  policy_settings {
+    enabled                     = true
+    mode                        = "Prevention"
+    request_body_check          = true
+    file_upload_limit_in_mb     = 100
+    max_request_body_size_in_kb = 128
+  }
+    managed_rules {
+    exclusion {
+      match_variable          = "RequestHeaderNames"
+      selector                = "x-company-secret-header"
+      selector_match_operator = "Equals"
+    }
+    managed_rule_set {
+      type    = "OWASP"
+      version = "3.1"
+      rule_group_override {
+        rule_group_name = "REQUEST-920-PROTOCOL-ENFORCEMENT"
+        disabled_rules = [
+          "920300",
+          "920440"
+        ]
+      }
+    }
+    }
+}
