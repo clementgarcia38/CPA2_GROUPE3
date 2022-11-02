@@ -4,7 +4,7 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   resource_group_name    = azurerm_resource_group.rg_mysql.name
   administrator_login    = "psqladmin"
   administrator_password = "H@Sh1CoR3!"
-  backup_retention_days  = 7
+ # backup_retention_days  = 7
   sku_name               = "B_Standard_B1ms"
 
 }
