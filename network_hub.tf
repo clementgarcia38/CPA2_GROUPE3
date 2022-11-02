@@ -7,12 +7,12 @@ resource "azurerm_virtual_network" "network_hub" {
 
   subnet {
     name           = "subbastion"
-    address_prefix = "10.1.1.0/26"
+    address_prefix = "10.1.1.0/24"
   }
 
   subnet {
     name           = "subvmcontroller"
-    address_prefix = "10.1.2.0/26"
+    address_prefix = "10.1.2.0/27"
     #    security_group = azurerm_network_security_group.example.id
   }
 
