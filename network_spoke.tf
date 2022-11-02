@@ -1,7 +1,7 @@
 resource "azurerm_virtual_network" "network_spoke" {
   name                = "vnetspoke"
   location            = azurerm_resource_group.rg_spoke.location
-  resource_group_name = azurerm_resource_group.rg_spoke.id
+  resource_group_name = azurerm_resource_group.rg_spoke.name
   address_space       = ["10.2.0.0/16"]
   #  dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
