@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg_spoke" {
-  name     = "rgspoke1"
+  name     = "rgspoke${local.location}"
   location = local.location
  # location = "West Europe"
 }
