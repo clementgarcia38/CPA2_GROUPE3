@@ -6,11 +6,6 @@ resource "azurerm_virtual_network" "network_hub" {
   #  dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
   subnet {
-    name           = "subbastion"
-    address_prefix = "10.1.1.0/24"
-  }
-
-  subnet {
     name           = "subvmcontroller"
     address_prefix = "10.1.2.0/27"
     #    security_group = azurerm_network_security_group.example.id
