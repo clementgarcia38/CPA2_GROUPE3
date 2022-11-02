@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "rg_hub" {
-  name     = "rghubcpa2"
+  name     = "rghub"
   location = "West Europe"
 }
