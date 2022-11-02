@@ -1,4 +1,4 @@
 resource "azurerm_resource_group" "rg_hub" {
-  name     = "rghub"
+  name     = "rghub${local.location}"
   location = local.location
 }
