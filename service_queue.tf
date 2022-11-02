@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "storage_queue" {
-  name                     = "queuestorage"
+  name                     = "queuestoragecpa2"
   resource_group_name      = azurerm_resource_group.rg_hub.name
   location                 = local.location
   account_tier             = "Standard"
