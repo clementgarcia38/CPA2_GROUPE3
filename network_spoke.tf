@@ -16,6 +16,8 @@ resource "azurerm_virtual_network" "network_spoke" {
     #    security_group = azurerm_network_security_group.example.id
   }
 
-  tags = {
+tags = {
+    env = "prod"
+    scope = "client"
   }
 }

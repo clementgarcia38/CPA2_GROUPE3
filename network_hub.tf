@@ -17,5 +17,7 @@ resource "azurerm_virtual_network" "network_hub" {
   }
 
   tags = {
+    env = "prod"
+    scope = "admin"
   }
 }
