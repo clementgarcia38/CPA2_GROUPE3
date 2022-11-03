@@ -8,7 +8,9 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   
   backup_retention_days  = 7
   sku_name               = "B_Standard_B1ms"
-  zone = 1
+  
+# Je n'arrive pas a laisser sans Zone, au second apply de tf il veut obligatoirement me passer à 1 ... du coup je le set
+  zone = 1 
 tags = {
     env = "prod"
     scope = "client"
