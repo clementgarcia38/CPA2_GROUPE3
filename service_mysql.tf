@@ -8,7 +8,7 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   
   backup_retention_days  = 7
   sku_name               = "B_Standard_B1ms"
-
+  zone = 1
 tags = {
     env = "prod"
     scope = "client"
