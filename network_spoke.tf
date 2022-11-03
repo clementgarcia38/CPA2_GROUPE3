@@ -13,7 +13,7 @@ tags = {
 
   resource "azurerm_subnet" "sub_bdd" {
     name           = "subbdd"
-    resource_group_name  = azurerm_resource_group.rg_spoke.name
+    resource_group_name  = azurerm_resource_group.rg_mysql.name
     virtual_network_name = azurerm_virtual_network.network_spoke.name
     address_prefixes     = ["10.2.2.0/24"]
   }
