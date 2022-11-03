@@ -21,5 +21,5 @@ tags = {
   name                 = "subaks"
   resource_group_name  = azurerm_resource_group.rg_spoke.name
   virtual_network_name = azurerm_virtual_network.network_spoke.name
-  address_prefixes     = ["10.2.1.0/27"]
+  address_prefixes     = ["10.2.1.0/24"]
   }
