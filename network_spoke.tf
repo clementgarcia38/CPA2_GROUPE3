@@ -5,14 +5,22 @@ resource "azurerm_virtual_network" "network_spoke" {
   address_space       = ["10.2.0.0/16"]
   #  dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
-  subnet {
-    name           = "subbdd"
-    address_prefix = "10.2.2.0/27"
-    #    security_group = azurerm_network_security_group.example.id
-  }
-
 tags = {
     env = "prod"
     scope = "client"
   }
 }
+
+  resource "azurerm_subnet" "sub_bdd" {
+    name           = "subbdd"
+    resource_group_name  = azurerm_resource_group.rg_spoke.name
+    virtual_network_name = azurerm_virtual_network.network_spoke.name
+    address_prefixes     = ["10.2.2.0/24"]
+  }
+
+  resource "azurerm_subnet" "sub_aks" {
+    name                 = "subaks"
+    resource_group_name  = azurerm_resource_group.rg_spoke.name
+    virtual_network_name = azurerm_virtual_network.network_spoke.name
+    address_prefixes     = ["10.2.1.0/24"]
+  }
