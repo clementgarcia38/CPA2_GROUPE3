@@ -1,5 +1,5 @@
 resource "azurerm_network_security_group" "nsg_aks" {
-    name = "nsaks"
+    name = "nsgaks"
     location = local.location
     resource_group_name = azurerm_resource_group.rg_network.name
 
@@ -16,7 +16,7 @@ resource "azurerm_network_security_group" "nsg_aks" {
   }
     security_rule {
         name                       = "hubtoaks"
-        priority                   = 100
+        priority                   = 101
         direction                  = "Inbound"
         access                     = "Allow"
         protocol                   = "Tcp"
