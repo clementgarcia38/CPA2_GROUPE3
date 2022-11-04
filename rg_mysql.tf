@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "rg_mysql" {
   location = local.location
 
   tags = {
-    env = "prod"
+    env   = "prod"
     scope = "client"
   }
 }

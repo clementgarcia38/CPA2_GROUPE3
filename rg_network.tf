@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "rg_network" {
   location = local.location
 
   tags = {
-    env = "prod"
+    env   = "prod"
     scope = "client"
   }
 }

@@ -6,19 +6,19 @@ resource "azurerm_virtual_network" "network_hub" {
   #  dns_servers         = ["10.0.0.4", "10.0.0.5"]
 
   tags = {
-    env = "prod"
+    env   = "prod"
     scope = "admin"
   }
 }
-  resource "azurerm_subnet" "sub_vmcontroller" {
-    name           = "subvmcontroller"
-    resource_group_name  = azurerm_resource_group.rg_network.name
-    virtual_network_name = azurerm_virtual_network.network_hub.name
-    address_prefixes     = ["10.1.2.0/27"]
-  }
-    resource "azurerm_subnet" "sub_registry" {
-    name           = "subregistry"
-    resource_group_name  = azurerm_resource_group.rg_network.name
-    virtual_network_name = azurerm_virtual_network.network_hub.name
-    address_prefixes     = ["10.1.3.0/24"]
-  }
+resource "azurerm_subnet" "sub_vmcontroller" {
+  name                 = "subvmcontroller"
+  resource_group_name  = azurerm_resource_group.rg_network.name
+  virtual_network_name = azurerm_virtual_network.network_hub.name
+  address_prefixes     = ["10.1.2.0/27"]
+}
+resource "azurerm_subnet" "sub_registry" {
+  name                 = "subregistry"
+  resource_group_name  = azurerm_resource_group.rg_network.name
+  virtual_network_name = azurerm_virtual_network.network_hub.name
+  address_prefixes     = ["10.1.3.0/24"]
+}
