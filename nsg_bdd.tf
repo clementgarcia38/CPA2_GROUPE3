@@ -14,6 +14,18 @@ resource "azurerm_network_security_group" "nsg_bdd" {
         source_address_prefix      = "10.2.1.0/24"
         destination_address_prefix = "10.2.2.0/24"
   }
+
+    security_rule {
+        name                       = "vmsubcontrollertobdd"
+        priority                   = 101
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "Tcp"
+        source_port_range          = "*"
+        destination_port_range     = "3306"
+        source_address_prefix      = "10.1.2.0/24"
+        destination_address_prefix = "10.2.2.0/24"
+  }
 } 
 
 resource "azurerm_subnet_network_security_group_association" "nsg_bdd_link" {
