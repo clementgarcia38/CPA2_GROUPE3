@@ -16,3 +16,9 @@ resource "azurerm_virtual_network" "network_hub" {
     virtual_network_name = azurerm_virtual_network.network_hub.name
     address_prefixes     = ["10.1.2.0/27"]
   }
+    resource "azurerm_subnet" "sub_registry" {
+    name           = "subregistry"
+    resource_group_name  = azurerm_resource_group.rg_network.name
+    virtual_network_name = azurerm_virtual_network.network_hub.name
+    address_prefixes     = ["10.1.3.0/24"]
+  }
