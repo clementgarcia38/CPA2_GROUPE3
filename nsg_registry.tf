@@ -4,7 +4,7 @@ resource "azurerm_network_security_group" "nsg_registry" {
   resource_group_name = azurerm_resource_group.rg_network.name
 }
 
-resource "azurerm_subnet_network_security_group_association" "nsg_subvmcontroller_link" {
+resource "azurerm_subnet_network_security_group_association" "nsg_registry_link" {
   subnet_id                 = azurerm_subnet.sub_registry.id
   network_security_group_id = azurerm_network_security_group.nsg_registry.id
 }
